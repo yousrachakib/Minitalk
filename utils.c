@@ -6,13 +6,13 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:59:42 by yochakib          #+#    #+#             */
-/*   Updated: 2022/12/28 22:10:00 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/01/05 22:26:51 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "minitalk.h"
 
-void	ft_putchar(char c)
+void	ftt_putchar(char c)
 {
 	write(1, &c, 1);
 }
@@ -54,7 +54,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	if (!s1 || !s2)
 		return (NULL);
-	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
 		return (NULL);
 	i = -1;
