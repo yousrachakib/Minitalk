@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 13:44:51 by yochakib          #+#    #+#             */
-/*   Updated: 2023/01/06 00:32:51 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/01/09 21:56:30 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,23 @@ int    convert_to_decimal(int binary)
         return (decimal);
 }
 
-void	signal_hundler(pid_t sig)
+void	signal_hundler(pid_t sig, siginfo_t	*info)
 {
 	static char *str;
+	static pid_t	client_pid;
+	
+	if (client_pid != info->si_pid)
+	{
+		client_pid = info->si_pid;
+		str = 0;
+	}
 	if (sig == SIGUSR1)
 		str = ft_strjoin(str,"0");
 	if (sig == SIGUSR2)
 		str = ft_strjoin(str,"1");
 	if (ft_strlen(str) == 8)
 	{	
-		ft_putchar(convert_to_decimal(ft_atoi(str)));
+		ftt_putchar(convert_to_decimal(ft_atoi(str)));
 		if (str)
 			free(str);
 		str = NULL;
@@ -53,16 +60,23 @@ void	signal_hundler(pid_t sig)
 
 }
 
-int	main(void)
+int	main(int argc, char	**argv)
 {
-	pid_t	pid;
+	pid_t				pid;
+	struct sigaction	act;
 
+	(void)argv;
+	if (argc != 1)
+	{
+		ft_printf("ERROR CHECK YOUR ARGC\n");
+		exit(1);
+	}
+	act.sa_handler = (void *)signal_hundler;
 	pid = getpid();
 	ft_printf("%d\n",pid);
-
-	if ((signal(SIGUSR1, signal_hundler)) < 0)
+	if ((sigaction(SIGUSR1, &act, NULL)) < 0)
 		write(1, "Error recieving the signal\n", 27);
-	if ((signal(SIGUSR2, signal_hundler)) < 0)
+	if ((sigaction(SIGUSR2, &act, NULL)) < 0)
 		write(1, "Error recieving the signal\n", 27);
 	while (1)
 		pause();

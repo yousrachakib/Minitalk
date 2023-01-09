@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 16:11:18 by yochakib          #+#    #+#             */
-/*   Updated: 2023/01/05 22:01:04 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/01/09 21:23:26 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	send_char(char c, pid_t pid)
 {
-	int i;
+	int 	i;
 	char	q;
 
 
@@ -33,12 +33,18 @@ void	send_char(char c, pid_t pid)
 
 int	main(int	argc,char **argv)
 {
+	int		i;
+	pid_t	pid;
+	
 	if(argc == 3)
 	{
-		int i = 0;
-		pid_t pid = ft_atoi(argv[1]);
-		if (pid == 0)
-			return (0);
+		i = 0;
+		pid = ft_atoi(argv[1]);
+		if (pid <= 0)
+		{
+			write(1, "CHECK PID\n", 9);
+			exit(0);
+		}
 		while(argv[2][i] != '\0')
 		{
 			send_char(argv[2][i], pid);
