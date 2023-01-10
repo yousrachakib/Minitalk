@@ -6,11 +6,11 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 21:59:42 by yochakib          #+#    #+#             */
-/*   Updated: 2023/01/05 22:26:51 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/01/10 22:20:02 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "minitalk.h"
+#include "minitalk.h"
 
 void	ftt_putchar(char c)
 {
@@ -19,16 +19,18 @@ void	ftt_putchar(char c)
 
 int	ft_atoi(char *string)
 {
-    int i = 0;
-    int res = 0;
+	int	i;
+	int	res;
 
-    while ((string[i] >= '0' && string[i] <= '9') && string[i] != '\0')
+	i = 0;
+	res = 0;
+	while ((string[i] >= '0' && string[i] <= '9') && string[i] != '\0')
 	{
 		res = res * 10;
 		res = res + string[i] - '0';
 		i++;
 	}
-    return(res);
+	return (res);
 }
 
 size_t	ft_strlen(const char *s)
@@ -52,8 +54,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		s1 = (char *)malloc(sizeof(char) * 1);
 		s1[0] = '\0';
 	}
-	if (!s1 || !s2)
-		return (NULL);
 	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
 		return (NULL);
