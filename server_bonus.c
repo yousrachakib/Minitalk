@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 02:57:04 by yochakib          #+#    #+#             */
-/*   Updated: 2023/01/13 15:41:01 by yochakib         ###   ########.fr       */
+/*   Created: 2023/01/13 15:42:30 by yochakib          #+#    #+#             */
+/*   Updated: 2023/01/13 15:54:32 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	signal_handler(int checking, siginfo_t *info)
 		ftt_putchar(binary_to_decimal(ftt_atoi(str)));
 		if (str)
 			free (str);
+		if (binary_to_decimal(ftt_atoi(str)) == 0)
+			kill(client_pid, SIGUSR1);
 		str = NULL;
 	}
 }

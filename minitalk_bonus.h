@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   minitalk_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 03:43:06 by yochakib          #+#    #+#             */
-/*   Updated: 2023/01/13 15:05:48 by yochakib         ###   ########.fr       */
+/*   Created: 2023/01/13 15:58:08 by yochakib          #+#    #+#             */
+/*   Updated: 2023/01/13 15:58:27 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ size_t	ftt_strlen(char *str);
 char	*ftt_strjoin(char *s1, char *s2);
 void	ftt_putchar(char c);
 int		binary_to_decimal(int binary);
+void	message(int	sig);
 
 #endif
