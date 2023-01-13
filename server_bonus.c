@@ -6,11 +6,31 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:42:30 by yochakib          #+#    #+#             */
-/*   Updated: 2023/01/13 15:54:32 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:35:27 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
+
+static int	binary_to_decimal_b(int binary, pid_t pid)
+{
+	int	decimal;
+	int	base;
+	int	reminder;
+
+	decimal = 0;
+	base = 1;
+	while (binary)
+	{
+		reminder = binary % 10;
+		binary = binary / 10;
+		decimal += reminder * base;
+		base = base * 2;
+	}
+	if (decimal == 0)
+		kill(pid, SIGUSR1);
+	return (decimal);
+}
 
 void	signal_handler(int checking, siginfo_t *info)
 {
@@ -30,11 +50,9 @@ void	signal_handler(int checking, siginfo_t *info)
 		str = ftt_strjoin(str, "0");
 	if (ftt_strlen(str) == 8)
 	{
-		ftt_putchar(binary_to_decimal(ftt_atoi(str)));
+		ftt_putchar(binary_to_decimal_b(ftt_atoi(str), client_pid));
 		if (str)
 			free (str);
-		if (binary_to_decimal(ftt_atoi(str)) == 0)
-			kill(client_pid, SIGUSR1);
 		str = NULL;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:58:08 by yochakib          #+#    #+#             */
-/*   Updated: 2023/01/13 15:58:27 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:15:43 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ftt_atoi(char *str);
 size_t	ftt_strlen(char *str);
 char	*ftt_strjoin(char *s1, char *s2);
 void	ftt_putchar(char c);
-int		binary_to_decimal(int binary);
+int		binary_to_decimal(int binary, pid_t pid);
 void	message(int	sig);
 
 #endif

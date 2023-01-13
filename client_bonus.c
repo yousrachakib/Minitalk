@@ -6,11 +6,11 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:55:11 by yochakib          #+#    #+#             */
-/*   Updated: 2023/01/13 18:15:59 by yochakib         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:17:08 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 void	message(int	sig)
 {
