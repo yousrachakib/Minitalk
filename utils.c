@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 03:19:50 by yochakib          #+#    #+#             */
-/*   Updated: 2023/01/13 19:18:20 by yochakib         ###   ########.fr       */
+/*   Created: 2023/01/14 15:29:17 by yochakib          #+#    #+#             */
+/*   Updated: 2023/01/14 15:33:03 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,6 @@ size_t	ftt_strlen(char *str)
 	return (i);
 }
 
-int	ftt_atoi(char *str)
-{
-    int i = 0;
-    int res = 0;
-
-    while ((str[i] >= '0' && str[i] <= '9') && str[i] != '\0')
-	{
-		res = res * 10;
-		res = res + str[i] - '0';
-		i++;
-	}
-    return(res);
-}
 int	binary_to_decimal(int binary)
 {
 	int	decimal;
@@ -58,6 +45,21 @@ int	binary_to_decimal(int binary)
 	return (decimal);
 }
 
+int	ftt_atoi(char *str)
+{
+	int	i;
+	int	res;
+
+	i = 0;
+	res = 0;
+	while ((str[i] >= '0' && str[i] <= '9') && str[i] != '\0')
+	{
+		res = res * 10;
+		res = res + str[i] - '0';
+		i++;
+	}
+	return (res);
+}
 char	*ftt_strjoin(char *s1, char *s2)
 {
 	size_t	i;

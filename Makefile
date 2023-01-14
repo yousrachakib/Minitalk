@@ -44,7 +44,7 @@ $(SNAME_BONUS) : $(OBJT_BONUS)
 %.o : %.c minitalk.h minitalk_bonus.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-re: fclean all
+re: fclean all bonus 
 
 clean:
 		$(RM) $(OBJ) $(OBJT) $(OBJ_BONUS) $(OBJT_BONUS)

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 04:09:56 by yochakib          #+#    #+#             */
-/*   Updated: 2023/01/13 15:27:36 by yochakib         ###   ########.fr       */
+/*   Created: 2023/01/14 15:29:43 by yochakib          #+#    #+#             */
+/*   Updated: 2023/01/14 15:34:33 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	send_signals(char c, int pid)
+void	send_char(char c, int pid)
 {
 	int		i;
 	char	bit;
@@ -29,25 +29,25 @@ void	send_signals(char c, int pid)
 	}
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int server_pid;
-	int i;
-	
+	size_t	server_pid;
+	int	i;
+
 	if (ac != 3)
-		return(ft_printf("few arguments!\n"));
+		return (ft_printf("Some this wrong arguments not enough!\n"));
 	else
-	{	i = 0;
+	{
+		i = 0;
 		server_pid = ftt_atoi(av[1]);
-		
 		while (av[2][i])
 		{
-			send_signals(av[2][i], server_pid);
+			send_char(av[2][i], server_pid);
 			i++;
 		}
 		if (av[2][i] == '\0')
 		{
-			send_signals(av[2][i], server_pid);
+			send_char(av[2][i], server_pid);
 			sleep(1);
 		}
 	}
